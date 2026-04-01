@@ -44,26 +44,26 @@ function App() {
       icon: <HardDrive className="w-12 h-12" />,
       title: "Data Recovery",
       description: "Lost files? We recover data from failed drives, corrupted systems, and accidental deletions.",
-      price: "From $99",
+      price: "From R99",
       highlight: "No recovery = No pay"
     },
     {
       icon: <Monitor className="w-12 h-12" />,
       title: "Computer Repair",
       description: "Hardware failures, virus removal, system optimization, and complete diagnostics.",
-      price: "From $79"
+      price: "From R79"
     },
     {
       icon: <Cloud className="w-12 h-12" />,
       title: "Remote Support",
       description: "Fast remote assistance for software issues, troubleshooting, and technical guidance.",
-      price: "From $49"
+      price: "From R49"
     },
     {
       icon: <Smartphone className="w-12 h-12" />,
       title: "On-Site Service",
       description: "We come to you! Home or office visits for setup, repairs, and installations.",
-      price: "From $89"
+      price: "From R89"
     }
   ];
 
