@@ -452,8 +452,13 @@ function App() {
           <p className="text-gray-400 mb-2">
             © 2025 EZ IT Remedy - Computer Support & Services
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 mb-2">
             Local IT Specialist | 15+ Years Experience | No Recovery = No Pay Guarantee
+          </p>
+          <p className="text-sm text-gray-400">
+            <a href="https://it-remedy.digital" className="hover:text-cyan-400 transition-colors">
+              www.it-remedy.digital
+            </a>
           </p>
         </div>
       </footer>
