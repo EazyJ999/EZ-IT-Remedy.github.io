@@ -7,9 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
-import { Monitor, HardDrive, Cloud, Smartphone, Clock, MapPin, Phone, Mail, CheckCircle2, Shield, Zap } from "lucide-react";
+import { Monitor, HardDrive, Cloud, Smartphone, Clock, MapPin, Phone, Mail, CheckCircle2, Shield, Zap, Server, Cpu, Database } from "lucide-react";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -66,6 +67,43 @@ function App() {
       price: "From R89"
     }
   ];
+
+  const hostingPlans = {
+    shared: [
+      { name: "Basic (Starter)", price: "R40" },
+      { name: "Advanced (Business)", price: "R49" },
+      { name: "Value (Corporate)", price: "R160" },
+      { name: "Premier (Enterprise)", price: "R190" }
+    ],
+    vps: [
+      { name: "KVM 4", specs: "4GB RAM", price: "R14.50" },
+      { name: "KVM 8", specs: "8GB RAM", price: "R29" },
+      { name: "KVM 16", specs: "16GB RAM", price: "R58" },
+      { name: "KVM 32", specs: "32GB RAM", price: "R115" },
+      { name: "vBox 4 (OVZ)", specs: "4GB RAM", price: "R14.50" },
+      { name: "vBox 8 (OVZ)", specs: "8GB RAM", price: "R29" },
+      { name: "vBox 16 (OVZ)", specs: "16GB RAM", price: "R58" }
+    ],
+    semiDedicated: [
+      { name: "Semi Pro", specs: "Semi Dedicated 1", price: "R20" },
+      { name: "Semi Expert", specs: "Semi Dedicated 2", price: "R30" }
+    ],
+    dedicated: [
+      { name: "Xeon E3 v3", price: "R60" },
+      { name: "Xeon E3 v5", price: "R76" },
+      { name: "Xeon O", price: "R93" },
+      { name: "Xeon E5 2620 v3", price: "R103" },
+      { name: "Xeon Scalable 6c", price: "R113" },
+      { name: "Xeon E5 2630L v4", price: "R119" },
+      { name: "Xeon E5 2650L v4", price: "R143" },
+      { name: "Xeon Scalable 8c", price: "R143" },
+      { name: "Xeon Scalable 10c", price: "R159" },
+      { name: "Xeon Scalable 16c", price: "R186" },
+      { name: "Xeon Scalable 24c", price: "R243" },
+      { name: "Xeon Scalable 48c", price: "R329" },
+      { name: "AMD Epyc 64c", price: "R383" }
+    ]
+  };
 
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
@@ -217,6 +255,130 @@ function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Web Hosting Services Section */}
+      <section className="py-20 bg-gray-950" data-testid="hosting-section">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Server className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
+            <h2 className="text-4xl font-bold mb-4 text-white">Web Hosting Services</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Professional hosting solutions for your website - from shared hosting to dedicated servers
+            </p>
+          </div>
+
+          <Tabs defaultValue="shared" className="max-w-6xl mx-auto">
+            <TabsList className="grid w-full grid-cols-4 bg-gray-800 mb-8" data-testid="hosting-tabs">
+              <TabsTrigger value="shared" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+                Shared Hosting
+              </TabsTrigger>
+              <TabsTrigger value="vps" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+                VPS Servers
+              </TabsTrigger>
+              <TabsTrigger value="semi" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+                Semi-Dedicated
+              </TabsTrigger>
+              <TabsTrigger value="dedicated" className="data-[state=active]:bg-cyan-500 data-[state=active]:text-white">
+                Dedicated Servers
+              </TabsTrigger>
+            </TabsList>
+
+            {/* Shared Hosting */}
+            <TabsContent value="shared" className="space-y-4">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {hostingPlans.shared.map((plan, index) => (
+                  <div key={index} className="bg-gray-800 p-6 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition-all hover:transform hover:scale-105">
+                    <Database className="w-10 h-10 text-cyan-400 mb-3" />
+                    <h3 className="text-lg font-bold text-white mb-2">{plan.name}</h3>
+                    <p className="text-3xl font-bold text-cyan-400 mb-4">{plan.price}<span className="text-sm text-gray-400">/mo</span></p>
+                    <Button 
+                      className="w-full bg-cyan-500 hover:bg-cyan-600"
+                      onClick={() => setBookingOpen(true)}
+                      data-testid={`hosting-order-btn-${index}`}
+                    >
+                      Order Now
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* VPS Servers */}
+            <TabsContent value="vps" className="space-y-4">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {hostingPlans.vps.map((plan, index) => (
+                  <div key={index} className="bg-gray-800 p-6 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition-all hover:transform hover:scale-105">
+                    <Cpu className="w-10 h-10 text-cyan-400 mb-3" />
+                    <h3 className="text-lg font-bold text-white mb-1">{plan.name}</h3>
+                    <p className="text-sm text-gray-400 mb-3">{plan.specs}</p>
+                    <p className="text-3xl font-bold text-cyan-400 mb-4">{plan.price}<span className="text-sm text-gray-400">/mo</span></p>
+                    <Button 
+                      className="w-full bg-cyan-500 hover:bg-cyan-600"
+                      onClick={() => setBookingOpen(true)}
+                      data-testid={`vps-order-btn-${index}`}
+                    >
+                      Order Now
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Semi-Dedicated */}
+            <TabsContent value="semi" className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                {hostingPlans.semiDedicated.map((plan, index) => (
+                  <div key={index} className="bg-gray-800 p-8 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition-all hover:transform hover:scale-105">
+                    <Server className="w-12 h-12 text-cyan-400 mb-4" />
+                    <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
+                    <p className="text-sm text-gray-400 mb-4">{plan.specs}</p>
+                    <p className="text-4xl font-bold text-cyan-400 mb-6">{plan.price}<span className="text-sm text-gray-400">/mo</span></p>
+                    <Button 
+                      className="w-full bg-cyan-500 hover:bg-cyan-600"
+                      onClick={() => setBookingOpen(true)}
+                      data-testid={`semi-order-btn-${index}`}
+                    >
+                      Order Now
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Dedicated Servers */}
+            <TabsContent value="dedicated" className="space-y-4">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {hostingPlans.dedicated.map((plan, index) => (
+                  <div key={index} className="bg-gray-800 p-6 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition-all hover:transform hover:scale-105">
+                    <Server className="w-10 h-10 text-cyan-400 mb-3" />
+                    <h3 className="text-lg font-bold text-white mb-2">{plan.name}</h3>
+                    <p className="text-3xl font-bold text-cyan-400 mb-4">{plan.price}<span className="text-sm text-gray-400">/mo</span></p>
+                    <Button 
+                      className="w-full bg-cyan-500 hover:bg-cyan-600"
+                      onClick={() => setBookingOpen(true)}
+                      data-testid={`dedicated-order-btn-${index}`}
+                    >
+                      Order Now
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-400 mb-4">Need help choosing the right hosting plan?</p>
+            <Button 
+              size="lg"
+              className="bg-cyan-500 hover:bg-cyan-600"
+              onClick={() => setContactOpen(true)}
+              data-testid="hosting-contact-btn"
+            >
+              Contact Us for Consultation
+            </Button>
           </div>
         </div>
       </section>
