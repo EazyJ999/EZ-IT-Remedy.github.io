@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
-import { Monitor, HardDrive, Cloud, Smartphone, Clock, MapPin, Phone, Mail, CheckCircle2, Shield, Zap, Server, Cpu, Database } from "lucide-react";
+import { Monitor, HardDrive, Cloud, Smartphone, Clock, MapPin, Phone, Mail, CheckCircle2, Shield, Zap, Server, Cpu, Database, MessageCircle } from "lucide-react";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -181,7 +181,7 @@ function App() {
               Your Local IT Specialist
             </p>
             <p className="text-lg md:text-xl mb-8 text-gray-300 max-w-3xl mx-auto">
-              Over 7 years of experience helping individuals and small businesses with data recovery, 
+              Over 15 years of experience helping individuals and small businesses with data recovery, 
               computer repairs, and reliable IT support.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -219,7 +219,7 @@ function App() {
             </div>
             <div className="text-center p-6 bg-gray-800 rounded-lg border border-cyan-500/20">
               <Shield className="w-16 h-16 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">7+ Years Experience</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">15+ Years Experience</h3>
               <p className="text-gray-300">Trusted by individuals and businesses for all IT needs.</p>
             </div>
             <div className="text-center p-6 bg-gray-800 rounded-lg border border-cyan-500/20">
@@ -390,19 +390,32 @@ function App() {
       <section className="py-20 bg-gray-900" data-testid="contact-info-section">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">Get In Touch</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             <div className="text-center p-6">
               <Phone className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2 text-white">Call Us</h3>
-              <a href="tel:0625825484" className="text-cyan-400 hover:text-cyan-300">
+              <a href="tel:0625825484" className="text-cyan-400 hover:text-cyan-300 block mb-2">
                 062 582 5484
+              </a>
+            </div>
+            <div className="text-center p-6">
+              <MessageCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2 text-white">WhatsApp</h3>
+              <a 
+                href="https://wa.me/27625825484" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-400 hover:text-green-300 block"
+                data-testid="whatsapp-link"
+              >
+                Chat with us
               </a>
             </div>
             <div className="text-center p-6">
               <Clock className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2 text-white">Hours</h3>
-              <p className="text-gray-300">Opens 5:30 PM Thu</p>
-              <p className="text-sm text-gray-400 mt-1">Call for current hours</p>
+              <p className="text-gray-300">Monday - Sunday</p>
+              <p className="text-sm text-gray-400 mt-1">06:00 - 20:00</p>
             </div>
             <div className="text-center p-6">
               <MapPin className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
@@ -411,7 +424,7 @@ function App() {
               <p className="text-sm text-gray-400 mt-1">On-site & Remote</p>
             </div>
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 flex flex-wrap gap-4 justify-center">
             <Button 
               size="lg" 
               className="bg-cyan-500 hover:bg-cyan-600 text-white"
@@ -419,6 +432,15 @@ function App() {
               data-testid="book-appointment-contact-btn"
             >
               Book Your Appointment Now
+            </Button>
+            <Button 
+              size="lg" 
+              className="bg-green-500 hover:bg-green-600 text-white"
+              onClick={() => window.open('https://wa.me/27625825484', '_blank')}
+              data-testid="whatsapp-btn"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              WhatsApp Us
             </Button>
           </div>
         </div>
@@ -431,7 +453,7 @@ function App() {
             © 2025 EZ IT Remedy - Computer Support & Services
           </p>
           <p className="text-sm text-gray-500">
-            Local IT Specialist | 7+ Years Experience | No Recovery = No Pay Guarantee
+            Local IT Specialist | 15+ Years Experience | No Recovery = No Pay Guarantee
           </p>
         </div>
       </footer>
