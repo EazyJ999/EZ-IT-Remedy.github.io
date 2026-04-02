@@ -73,38 +73,38 @@ function App() {
 
   const hostingPlans = {
     shared: [
-      { name: "Basic (Starter)", price: "R40" },
-      { name: "Advanced (Business)", price: "R49" },
-      { name: "Value (Corporate)", price: "R160" },
-      { name: "Premier (Enterprise)", price: "R190" }
+      { name: "Basic (Starter)", price: "R720" },
+      { name: "Advanced (Business)", price: "R882" },
+      { name: "Value (Corporate)", price: "R2,880" },
+      { name: "Premier (Enterprise)", price: "R3,420" }
     ],
     vps: [
-      { name: "KVM 4", specs: "4GB RAM", price: "R14.50" },
-      { name: "KVM 8", specs: "8GB RAM", price: "R29" },
-      { name: "KVM 16", specs: "16GB RAM", price: "R58" },
-      { name: "KVM 32", specs: "32GB RAM", price: "R115" },
-      { name: "vBox 4 (OVZ)", specs: "4GB RAM", price: "R14.50" },
-      { name: "vBox 8 (OVZ)", specs: "8GB RAM", price: "R29" },
-      { name: "vBox 16 (OVZ)", specs: "16GB RAM", price: "R58" }
+      { name: "KVM 4", specs: "4GB RAM", price: "R261" },
+      { name: "KVM 8", specs: "8GB RAM", price: "R522" },
+      { name: "KVM 16", specs: "16GB RAM", price: "R1,044" },
+      { name: "KVM 32", specs: "32GB RAM", price: "R2,070" },
+      { name: "vBox 4 (OVZ)", specs: "4GB RAM", price: "R261" },
+      { name: "vBox 8 (OVZ)", specs: "8GB RAM", price: "R522" },
+      { name: "vBox 16 (OVZ)", specs: "16GB RAM", price: "R1,044" }
     ],
     semiDedicated: [
-      { name: "Semi Pro", specs: "Semi Dedicated 1", price: "R20" },
-      { name: "Semi Expert", specs: "Semi Dedicated 2", price: "R30" }
+      { name: "Semi Pro", specs: "Semi Dedicated 1", price: "R360" },
+      { name: "Semi Expert", specs: "Semi Dedicated 2", price: "R540" }
     ],
     dedicated: [
-      { name: "Xeon E3 v3", price: "R60" },
-      { name: "Xeon E3 v5", price: "R76" },
-      { name: "Xeon O", price: "R93" },
-      { name: "Xeon E5 2620 v3", price: "R103" },
-      { name: "Xeon Scalable 6c", price: "R113" },
-      { name: "Xeon E5 2630L v4", price: "R119" },
-      { name: "Xeon E5 2650L v4", price: "R143" },
-      { name: "Xeon Scalable 8c", price: "R143" },
-      { name: "Xeon Scalable 10c", price: "R159" },
-      { name: "Xeon Scalable 16c", price: "R186" },
-      { name: "Xeon Scalable 24c", price: "R243" },
-      { name: "Xeon Scalable 48c", price: "R329" },
-      { name: "AMD Epyc 64c", price: "R383" }
+      { name: "Xeon E3 v3", price: "R1,080" },
+      { name: "Xeon E3 v5", price: "R1,368" },
+      { name: "Xeon O", price: "R1,674" },
+      { name: "Xeon E5 2620 v3", price: "R1,854" },
+      { name: "Xeon Scalable 6c", price: "R2,034" },
+      { name: "Xeon E5 2630L v4", price: "R2,142" },
+      { name: "Xeon E5 2650L v4", price: "R2,574" },
+      { name: "Xeon Scalable 8c", price: "R2,574" },
+      { name: "Xeon Scalable 10c", price: "R2,862" },
+      { name: "Xeon Scalable 16c", price: "R3,348" },
+      { name: "Xeon Scalable 24c", price: "R4,374" },
+      { name: "Xeon Scalable 48c", price: "R5,922" },
+      { name: "AMD Epyc 64c", price: "R6,894" }
     ]
   };
 
