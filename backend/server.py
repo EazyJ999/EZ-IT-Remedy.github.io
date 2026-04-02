@@ -101,7 +101,8 @@ async def create_status_check(input: StatusCheckCreate):
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
+    """Get recent status checks (limited to 50, sorted by most recent)"""
+    status_checks = await db.status_checks.find({}, {"_id": 0}).sort("timestamp", -1).limit(50).to_list(50)
     
     for check in status_checks:
         if isinstance(check['timestamp'], str):
@@ -129,9 +130,9 @@ async def create_appointment(input: AppointmentCreate):
 
 @api_router.get("/appointments", response_model=List[Appointment])
 async def get_appointments():
-    """Get all appointments"""
+    """Get recent appointments (limited to 100, sorted by most recent)"""
     try:
-        appointments = await db.appointments.find({}, {"_id": 0}).to_list(1000)
+        appointments = await db.appointments.find({}, {"_id": 0}).sort("created_at", -1).limit(100).to_list(100)
         
         for appointment in appointments:
             if isinstance(appointment['created_at'], str):
@@ -162,9 +163,9 @@ async def create_contact(input: ContactCreate):
 
 @api_router.get("/contacts", response_model=List[Contact])
 async def get_contacts():
-    """Get all contact submissions"""
+    """Get recent contact submissions (limited to 100, sorted by most recent)"""
     try:
-        contacts = await db.contacts.find({}, {"_id": 0}).to_list(1000)
+        contacts = await db.contacts.find({}, {"_id": 0}).sort("created_at", -1).limit(100).to_list(100)
         
         for contact in contacts:
             if isinstance(contact['created_at'], str):
